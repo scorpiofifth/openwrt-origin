@@ -35,7 +35,7 @@ jobs:
           cp diffconfig .config
           make defconfig
           make download -j$(nproc)
-          make -j$(nproc)
+          make -j$(nproc) || make -j1 V=s
           rm -rf ./bin/targets/*/*/packages
           cp bin/targets/*/*/* ../output
       - name: Upload
