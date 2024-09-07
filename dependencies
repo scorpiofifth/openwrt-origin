@@ -1,6 +1,5 @@
 ack
 antlr3
-aria2
 asciidoc
 autoconf
 automake
@@ -46,8 +45,9 @@ p7zip
 p7zip-full
 patch
 pkgconf
+python2.7
 python3
-python3-pip
+python3-pyelftools
 libpython3-dev
 qemu-utils
 rsync
@@ -64,4 +64,4 @@ wget
 xmlto
 xxd
 zlib1g-dev
-
+python3-setuptools

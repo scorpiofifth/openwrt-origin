@@ -25,14 +25,16 @@ jobs:
           sudo apt update
           sudo apt install $(cat dependencies) -y
           git clone https://github.com/coolsnowwolf/lede.git openwrt
-          cp diffconfig openwrt
           mkdir output
-      - name: Compile
+      - name: Deal with feeds
         run: | 
           cd openwrt
           ./scripts/feeds update -a 
           ./scripts/feeds install -a
-          cp diffconfig .config
+      - name: Compile
+        run: | 
+          cd openwrt
+          cp ../.config .
           make defconfig
           make download -j$(nproc)
           make -j$(nproc) || make -j1 V=s
